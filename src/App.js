@@ -5,11 +5,7 @@ import './App.css';
 
 class App extends React.Component {
 
-  state = {todos: [
-             {task: 'walk with Scala', completed: false}, 
-             {task: 'buy dinner', completed: false}, 
-             {task: "buy Scala's treats", completed: false}
-            ],
+  state = {todos: [],
             task: ''
   }
 
