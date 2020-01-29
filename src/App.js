@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TodosList from './todosList';
 import Bar from './bar.js';
 import './App.css';
@@ -38,7 +38,6 @@ class App extends React.Component {
   completedTodo = (indx) => {
     let { todos } = {...this.state}
     todos[indx].completed =  !todos[indx].completed 
-    console.log(todos[indx].completed)
     this.setState({todos})
   }
 

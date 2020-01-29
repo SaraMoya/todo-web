@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.completed {
+  color: greenyellow;
+}
+
+.todoItem {
+  justify-items: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin: 1vw 30vw;
+}
+
+.todoItem button {
+  width: 3vw;
+}
+
