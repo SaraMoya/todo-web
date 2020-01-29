@@ -29,17 +29,24 @@ class App extends React.Component {
     this.setState({ task })
   }
 
-  removeTodo = () => {
-    let { todos } = { ...props.thisState.state };
-    props.todos.splice(props.indx, 1)
-    props.thisState.setState({ todos });
+  removeTodo = (indx) => {
+    let { todos } = { ...this.state };
+    todos.splice(indx, 1)
+    this.setState({ todos });
 }
+
+  completedTodo = (indx) => {
+    let { todos } = {...this.state}
+    todos[indx].completed =  !todos[indx].completed 
+    console.log(todos[indx].completed)
+    this.setState({todos})
+  }
 
   render(){ 
     return (
       <div className="App">
         <Bar todos={this.state.todos} addTodo={this.addTodo} handleChange={this.handleChange} task={this.state.task}/>
-        <TodosList todos={this.state.todos} removeTodo={this.removeTodo} />
+        <TodosList todos={this.state.todos} removeTodo={this.removeTodo} completedTodo={this.completedTodo}/>
       </div>
     );
   }
