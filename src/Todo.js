@@ -9,7 +9,14 @@ const Todo = (props) => {
     return (
     <div className='todoItem'>
         <button onClick={()=>props.removeTodo(props.indx)}>X</button>
-        <h4 className={completedClass} >{props.Todo.task}</h4>
+
+        <h4 suppressContentEditableWarning={true} contentEditable="true" onInput={e => {
+            console.log(e.currentTarget.textContent)
+        }}
+        onBlur={e=>props.editTodo(props.indx, e.currentTarget.textContent)}
+        
+        className={completedClass} >{props.Todo.task}</h4>
+
         <button onClick={()=> props.completedTodo(props.indx)}>Done</button>
     </div>
     )

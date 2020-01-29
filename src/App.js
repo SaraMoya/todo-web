@@ -20,6 +20,7 @@ class App extends React.Component {
   }
 
   addTodo = () => {
+    if (this.state.task.length > 0) {
     let { todos } = { ...this.state };
     todos.push({task: this.state.task, completed: false})
     this.setState({ todos });
@@ -27,6 +28,7 @@ class App extends React.Component {
     let { task } = {...this.state}
     task = ''
     this.setState({ task })
+    }
   }
 
   removeTodo = (indx) => {
@@ -41,11 +43,19 @@ class App extends React.Component {
     this.setState({todos})
   }
 
+  editTodo = (indx, text) => {
+    let { todos } = {...this.state}
+    todos[indx].task = text
+    console.log(todos)
+    this.setState({todos})
+  }
+  
   render(){ 
     return (
       <div className="App">
         <Bar todos={this.state.todos} addTodo={this.addTodo} handleChange={this.handleChange} task={this.state.task}/>
-        <TodosList todos={this.state.todos} removeTodo={this.removeTodo} completedTodo={this.completedTodo}/>
+        <TodosList todos={this.state.todos} removeTodo={this.removeTodo} completedTodo={this.completedTodo}
+        editTodo={this.editTodo}/>
       </div>
     );
   }
